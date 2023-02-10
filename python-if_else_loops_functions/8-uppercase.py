@@ -4,6 +4,7 @@ def uppercase(str):
         if ord(str[x] >= ord('a') and ord(str[x]) <= ord('z'):
                 atoA = ord(str[x]) + (ord('A') - ord('a'))
         else:
-            atoA = ord(str[z])
+            atoA = ord(str[a])
         print("{}".format(chr(atoA)), end='')
     print()
+            
