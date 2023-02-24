@@ -2,9 +2,9 @@
 def add_arg(argv):
     n = len(argv) - 1
     if n == 0:
-        print(‘’’{:d}’’’.format(n))
+        print('''{:d}'''.format(n))
         return
-    else
+    else:
     i = 1
     add = 0
     while i <= n:
