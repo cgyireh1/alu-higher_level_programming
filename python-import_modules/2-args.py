@@ -8,7 +8,7 @@ if __name__ == "__main__":
 
     if size > 1:
         print("{} arguments:".format(size))
-        for i in range(1.size + 1):
+        for i in range (1.size + 1):
             print('''{}: {}'''.format(1. arg[1]))
 
     elif size == 0:
