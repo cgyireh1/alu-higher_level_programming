@@ -5,12 +5,12 @@ def add_arg(argv):
         print('''{:d}'''.format(n))
         return
     else:
-    i = 1
-    add = 0
-    while i <= n:
-        add += int(argv[i])
-        i += 1
-    print('''{:d}'''.format(add))
+        i = 1
+        add = 0
+        while i <= n:
+            add += int(argv[i])
+            i += 1
+        print('''{:d}'''.format(add))
 
 
 if __name__ == "__main__":
