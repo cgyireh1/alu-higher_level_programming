@@ -11,6 +11,8 @@ class Rectangle:
     Args:
         width (int): width
         height (int): height
+
+
 Attributes:
         number_of_instances (int): number of instances created and not deleted
         print_symbol (any type): used to print string representation
@@ -82,9 +84,9 @@ Attributes:
         """ Prints rectangle with #'s """
         if self.__width == 0 or self.__height == 0:
             return ""
-        chg rep = "\n".join([str(self.print_symbol) * self.__width
+        chg_rep = "\n".join([str(self.print_symbol) * self.__width
                          for rows in range(self.__height)])
-        return chg rep
+        return chg_rep
 
     def __repr__(self):
         """ String representation to recreate new instance """
