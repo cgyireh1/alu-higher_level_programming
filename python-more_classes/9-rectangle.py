@@ -12,8 +12,7 @@ class Rectangle:
         width (int): width
         height (int): height
 
-
-   Attributes:
+    Attributes:
         number_of_instances (int): number of instances created and not deleted
         print_symbol (any type): used to print string representation
     Functions:
@@ -86,9 +85,9 @@ class Rectangle:
         """ Prints rectangle with #'s """
         if self.__width == 0 or self.__height == 0:
             return ""
-        sqr_rec = "\n".join([str(self.print_symbol) * self.__width
+        pic = "\n".join([str(self.print_symbol) * self.__width
                          for rows in range(self.__height)])
-        return sqr_rec
+        return pic
 
     def __repr__(self):
         """ String representation to recreate new instance """

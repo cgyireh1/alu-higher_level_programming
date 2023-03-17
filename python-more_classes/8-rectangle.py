@@ -8,10 +8,9 @@ class Rectangle:
     """
     A class that represents a rectangle with private attribute width and height
 
-    Args:
+        Args:
         width (int): width
         height (int): height
-
     Attributes:
         number_of_instances (int): number of instances created and not deleted
         print_symbol (any type): used to print string representation
@@ -84,9 +83,9 @@ class Rectangle:
         """ Prints rectangle with #'s """
         if self.__width == 0 or self.__height == 0:
             return ""
-        com_rects = "\n".join([str(self.print_symbol) * self.__width
+        com_rec = "\n".join([str(self.print_symbol) * self.__width
                          for rows in range(self.__height)])
-        return com_rects
+        return com_rec
 
     def __repr__(self):
         """ String representation to recreate new instance """
