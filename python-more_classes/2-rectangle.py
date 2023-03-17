@@ -5,8 +5,8 @@ Define a class Rectangle
 
 
 class Rectangle:
-    """ 
-    A class that represents a rectangle with private attribute  width and height
+    """
+    A class that represents a rectangle with private attribute width and height
 
     Args:
         width (int): width

@@ -5,8 +5,8 @@ Define a class Rectangle
 
 
 class Rectangle:
-    """ 
-    A class that represents a rectangle with private attribute  width and height
+    """
+    A class that represents a rectangle with private attribute width and height
 
     Args:
         width (int): width
@@ -51,4 +51,3 @@ class Rectangle:
         if value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-        
