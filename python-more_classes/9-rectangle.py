@@ -13,7 +13,7 @@ class Rectangle:
         height (int): height
 
 
-    Attributes:
+   Attributes:
         number_of_instances (int): number of instances created and not deleted
         print_symbol (any type): used to print string representation
     Functions:
@@ -27,6 +27,8 @@ class Rectangle:
         __str__(self)
         __repr__(self)
         __del__(self)
+        bigger_or_equal(rect_1, rect_2)
+        square(cls, size)
     """
     number_of_instances = 0
     print_symbol = "#"
@@ -84,10 +86,28 @@ class Rectangle:
         """ Prints rectangle with #'s """
         if self.__width == 0 or self.__height == 0:
             return ""
-        chg_rep = "\n".join([str(self.print_symbol) * self.__width
+        sqr_rec = "\n".join([str(self.print_symbol) * self.__width
                          for rows in range(self.__height)])
-        return chg_rep
+        return sqr_rec
 
     def __repr__(self):
         """ String representation to recreate new instance """
         return "Rectangle({:d}, {:d})".format(self.width, self.height)
+
+    @staticmethod
+    def bigger_or_equal(rect_1, rect_2):
+        """ Returns which rectangle has a bigger area"""
+        if not isinstance(rect_1, Rectangle) or \
+                not isinstance(rect_2, Rectangle):
+            raise TypeError("{} must be an instance of Rectangle".
+                            format("rect_1" if not
+                                   isinstance(rect_1, Rectangle)
+                                   else "rect_2"))
+        if rect_2.area() > rect_1.area():
+            return rect_2
+        return rect_1
+
+    @classmethod
+    def square(cls, size=0):
+        """ Returns new rectangle instance with width == height == size """
+        return cls(size, size)
