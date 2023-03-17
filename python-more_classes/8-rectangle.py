@@ -84,7 +84,7 @@ class Rectangle:
         if self.__width == 0 or self.__height == 0:
             return ""
         com_rec = "\n".join([str(self.print_symbol) * self.__width
-                         for rows in range(self.__height)])
+            for rows in range(self.__height)])
         return com_rec
 
     def __repr__(self):
