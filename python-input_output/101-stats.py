@@ -21,14 +21,14 @@ def parse_stdin_and_compute():
             size += int(fields[-1])
             if fields[-2] in stat_codes:
                 stat_codes[fields[-2]] += 1
-            lines += 1
+                lines += 1
             if lines % 10 == 0:
                 print_size_and_codes(size, stat_codes)
     except KeyboardInterrupt:
         print_size_and_codes(size, stat_codes)
         raise
 
-    print_size_and_codes(size, stat_codes)
+             print_size_and_codes(size, stat_codes)
 
 
 parse_stdin_and_compute()
