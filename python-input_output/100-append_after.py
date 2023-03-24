@@ -1,8 +1,7 @@
 #!/usr/bin/python3
-""" 
+"""
 Contains a function that inserts a line of text to a file.
 """
-
 
 def append_after(fname="", search_string="", new_string=""):
     """
