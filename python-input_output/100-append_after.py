@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-"""     
+""" 
 Contains a function that inserts a line of text to a file.
 """
 

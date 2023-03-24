@@ -1,41 +1,34 @@
-#!/usr/bin/python3
+#!/usr/bin/python
 """Log parsing script."""
 import sys
 
-total_size = 0
-codes = {'200': 0, '301': 0, '400': 0, '401': 0,
-         '403': 0, '404': 0, '405': 0, '500': 0}
-iteration = 0
+
+def print_size_and_codes(size, stat_codes):
+    print("File size: {:d}".format(size))
+    for k, v in sorted(stat_codes.items()):
+        if v:
+            print("{:s}: {:d}".format(k, v))
 
 
-def print_stats():
-    """Function that prints resume of the stats."""
-    print("File size: {}".format(total_size))
-    for k, v in sorted(codes.items()):
-        if v is not 0:
-            print("{}: {}".format(k, v))
+def parse_stdin_and_compute():
+    size = 0
+    lines = 0
+    stat_codes = {"200": 0, "301": 0, "400": 0, "401": 0,
+                  "403": 0, "404": 0, "405": 0, "500": 0}
+    try:
+        for line in sys.stdin:
+            fields = list(map(str, line.strip().split(" ")))
+            size += int(fields[-1])
+            if fields[-2] in stat_codes:
+                stat_codes[fields[-2]] += 1
+            lines += 1
+            if lines % 10 == 0:
+                print_size_and_codes(size, stat_codes)
+    except KeyboardInterrupt:
+        print_size_and_codes(size, stat_codes)
+        raise
+
+    print_size_and_codes(size, stat_codes)
 
 
-try:
-    for line in sys.stdin:
-        line = line.split()
-        if len(line) >= 2:
-            tmp = iteration
-            if line[-2] in codes:
-                codes[line[-2]] += 1
-                iteration += 1
-            try:
-                total_size += int(line[-1])
-                if tmp == iteration:
-                    iteration += 1
-            except:
-                if tmp == iteration:
-                    continue
-
-        if iteration % 10 == 0:
-            print_stats()
-
-    print_stats()
-
-except KeyboardInterrupt:
-    print_stats()
+parse_stdin_and_compute()
