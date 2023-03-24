@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """Write a class MyInt that inherits from int"""
-    
+
 
 class MyInt(int):
     """Custom int type inverting behavior of != and == operators.
