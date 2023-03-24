@@ -1,94 +1,117 @@
-============================================
-How to use 1-my_list.txt
-============================================
+==============================
+doctest for 7-base_geometry.py
+==============================
 
-This library is very simple, since it only has one function called
- ''print_sorted()''.
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+>>> bg = BaseGeometry()
 
-Numbers:
-========
-''print_sorted()'' returns the list sorted.
-:: with positives integers
-   >>> MyList = __import__('1-my_list').MyList
-   >>> my_list = MyList()
-   >>> isinstance(my_list, list)
-   True
-   >>> my_list.print_sorted()
-   []
+TEST CONDITIONS
+===============
 
-:: adding items in the list
-   >>> my_list.append(7)
-   >>> my_list.append(3)
-   >>> my_list.append(1)
-   >>> my_list.print_sorted()
-   [1, 3, 7]
+testing instantiation
+::
+>>> print(bg.__dict__)
+{}
 
-:: whit zero values
-   >>> my_list.append(0)
-   >>> my_list.print_sorted()
-   [0, 1, 3, 7]
+testing area method
+::
+>>> try:
+...     bg.area()
+... except Exception as err:
+...     print(err)
+area() is not implemented
 
-:: with infinite integer
-   >>> my_list.append(int('inf'))
-   Traceback (most recent call last):
-   ValueError: invalid literal for int() with base 10: 'inf'
+testing integer_validator method
+::
+>>> try:
+...     bg.integer_validator("x", 1)
+... except Exception as err:
+...     print(err)
 
-:: with negative values
-   >>> my_list.append(-15)
-   >>> my_list.print_sorted()
-   [-15, 0, 1, 3, 7]
+testing integer_validator method with TypeError float
+::
+>>> try:
+...     bg.integer_validator("x", 3.14159)
+... except Exception as err:
+...     print(err)
+x must be an integer
 
-:: when repeat an element
-   >>> my_list.append(-15)
-   >>> my_list.append(0)
-   >>> my_list.append(7)
-   >>> my_list.print_sorted()
-   [-15, -15, 0, 0, 1, 3, 7, 7]
+testing integer_validator method with TypeError string
+::
+>>> try:
+...     bg.integer_validator("x", "52")
+... except Exception as err:
+...     print(err)
+x must be an integer
 
-:: when all elementes in the list are the same
-   >>> my_list.clear()
-   >>> my_list.append(5)
-   >>> my_list.append(2)
-   >>> my_list.append(1)
-   >>> my_list.append(3)
-   >>> my_list.append(4)
-   >>> my_list.print_sorted()
-   [5, 2, 1, 3, 4]
+testing integer_validator method with TypeError tuple
+::
+>>> try:
+...     bg.integer_validator("x", (0,))
+... except Exception as err:
+...     print(err)
+x must be an integer
 
-:: with a max integer
-   >>> my_list.append(100)
-   >>> my_list.print_sorted()
-   [1, 2, 3, 4, 5, 100]
+testing integer_validator method with TypeError list
+::
+>>> try:
+...     bg.integer_validator("x", [7])
+... except Exception as err:
+...     print(err)
+x must be an integer
 
-:: wiht None value
-   >>> my_list.append(None)
-   >>> my_list.print_sorted()
-   Traceback (most recent call last):
-   TypeError: unorderable types: NoneType() < int()
+testing integer_validator method with TypeError boolean
+::
+>>> try:
+...     bg.integer_validator("x", True)
+... except Exception as err:
+...     print(err)
+x must be an integer
 
-:: wiht NULL value
-   >>> my_list.append(NULL)
-   Traceback (most recent call last):
-   NameError: name 'NULL' is not defined
-Test list with no elements:
-     >>> empty = MyList()
-     >>> print(empty)
-     []
-     >>> empty.print_sorted()
-     []
+testing integer_validator method with TypeError set
+::
+>>> try:
+...     bg.integer_validator("x", {8})
+... except Exception as err:
+...     print(err)
+x must be an integer
 
-Test type, isinstance, issubclass:
-     >>> type(MyList())
-     <class '1-my_list.MyList'>
+testing integer_validator method with ValueError negative
+::
+>>> try:
+...     bg.integer_validator("x", -2)
+... except Exception as err:
+...     print(err)
+x must be greater than 0
 
-     >>> isinstance(MyList, object)
-     True
+testing integer_validator method with ValueError zero
+::
+>>> try:
+...     bg.integer_validator("x", 0)
+... except Exception as err:
+...     print(err)
+x must be greater than 0
 
-     >>> isinstance(MyList, list)
-     False
+testing integer_validator method with no arguments
+::
+>>> try:
+...     bg.integer_validator()
+... except Exception as err:
+...     print(err)
+integer_validator() missing 2 required positional arguments: 'name' and 'value'
 
-     >>> issubclass(MyList, list)
-     True
+testing integer_validator method with only one argument
+::
+>>> try:
+...     bg.integer_validator("x")
+... except Exception as err:
+...     print(err)
+integer_validator() missing 1 required positional argument: 'value'
 
-     >>> 'print_sorted' in dir(MyList)
-     True
+testing integer_validator with None
+::
+>>> try:
+...     bg.integer_validator(None, None)
+... except Exception as err:
+...     print(err)
+None must be an integer
