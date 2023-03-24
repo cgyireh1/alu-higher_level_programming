@@ -1,15 +1,12 @@
 # run test using ./tests/[filename].txt
 
-
 First import method to test
->>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
-CASES:`:
+     >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+CASES:
 
 Test ints greater than 0 (shouldn't raise error or return anything):
      >>> bg = BaseGeometry()
      >>> bg.integer_validator("checkme", 999)
-
-FAIL CASES:
 
 Test non-implemented area method
      >>> bg = BaseGeometry()
@@ -79,4 +76,4 @@ Test non-ints:
      >>> bg.integer_validator("checkme", {3, 4})
      Traceback (most recent call last):
      ...
-     TypeError: checkme must be an intege
+     TypeError: checkme must be an integer
