@@ -14,6 +14,31 @@ Test cases for 1-my_list.py
 >>> print(my_list)
 [4, 2, 3]
 
+>>> l = MyList()
+>>> l.append(4)
+>>> l.append(2)
+>>> l.append(3)
+>>> print(l)
+[ 4, 2, 3]
+>>> id(l) is not id(l.print_sorted())
+[2, 3, 4]
+True
+
+>>> type(MyList())
+<class '1-my_list.MyList'>
+
+>>> isinstance(MyList, object)
+True
+
+>>> isinstance(MyList, list)
+False
+
+>>> issubclass(MyList, list)
+True
+
+>>> 'print_sorted' in dir(MyList)
+True
+
 >>> my_list = MyList()
 >>> print(my_list)
 []
