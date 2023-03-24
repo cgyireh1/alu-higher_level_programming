@@ -1,197 +1,78 @@
-Using ''print_sorted''
+Module 1-my_list
 
-First import
-First import ``MyList`` from the ``1-my_list`` module. Since the file name contains a numeral, you can't use the simple ``from 1-my_list import MyList``. You can instead use the following syntax:
+Importing MyList class:
 
-    >>> MyList = __import__('1-my_list').MyList
+	>>> MyList = __import__('1-my_list').MyList
 
-Normal use
-First we construct a simple list of integers:
+Usage:
 
-    >>> my_list = MyList()
-    >>> my_list.append(1)
-    >>> my_list.append(2)
-    >>> my_list.append(4)
-    >>> my_list.append(5)
-    >>> my_list.append(3)
-    >>> print(my_list)
-    [1, 2, 4, 5, 3]
+Can be initialized with no args
 
-Then print_sorted can be used to print a sorted version of that list:
+	>>> my_list = MyList()
+	>>> type(my_list)
+	<class '1-my_list.MyList'>
 
-    >>> my_list.print_sorted()
-    [1, 2, 3, 4, 5]
+	>>> print(my_list)
+	[]
 
-The method will not mutate the original list:
+	>>> my_list = MyList()
+	>>> my_list.print_sorted()
+	[]
 
-    >>> print(my_list)
-    [1, 2, 4, 5, 3]
+With elements:
 
-Unintended use
-No exceptions arise for these use cases, although there is no practical reason to sort a list of less than 2 members, and per the project instructions only ints are expected as list members:
+	>>> my_list = MyList([3, 1, 2])
+	>>> print(my_list)
+	[3, 1, 2]
 
-    - 0 members:
+TypeError raised if None is as argument:
 
-    >>> my_list = MyList()
-    >>> my_list.print_sorted()
-    []
+	>>> my_list = MyList(None)
+	Traceback (most recent call last):
+	TypeError: 'NoneType' object is not iterable
 
-    - 1 member:
+Inherits methods of class list
 
-    >>> my_list = MyList()
-    >>> my_list.append(4)
-    >>> my_list.print_sorted()
-    [4]
+	>>> my_list = MyList()
+	>>> my_list.append(1)
+ 	>>> my_list.append(4)
+	>>> my_list.append(2)
+	>>> print(my_list)
+	[1, 4, 2]
+	>>> my_list.print_sorted()
+	[1, 2, 4]
+	>>> print(my_list)
+	[1, 4, 2]
 
-    - floats in list:
+Also works with strings
 
-    >>> my_list = MyList()
-    >>> my_list.append(.2)
-    >>> my_list.append(7.0)
-    >>> my_list.append(4.6)
-    >>> my_list.append(6.3)
-    >>> my_list.append(2.0)
-    >>> print(my_list)
-    [0.2, 7.0, 4.6, 6.3, 2.0]
+	>>> my_list = MyList()
+	>>> my_list.append("ok")
+	>>> my_list.append("hi")
+	>>> my_list.append("hello")
+	>>> my_list.print_sorted()
+	['hello', 'hi', 'ok']
 
-    >>> my_list.print_sorted()
-    [0.2, 2.0, 4.6, 6.3, 7.0]
+	>>> my_list = MyList([1, "hi", 5, "ok"])
+	>>> my_list.print_sorted()
+	Traceback (most recent call last):
+	TypeError: '<' not supported between instances of 'str' and 'int'
 
-    - mixed floats and ints:
+	>>> my_list = MyList()
+	>>> my_list.print_sorted(1)
+	Traceback (most recent call last):
+	TypeError: print_sorted() takes 1 positional argument but 2 were given
 
-    >>> my_list = MyList()
-    >>> my_list.append(2)
-    >>> my_list.append(4.2)
-    >>> my_list.append(2.4)
-    >>> my_list.append(7.5)
-    >>> my_list.append(6)
-    >>> print(my_list)
-    [2, 4.2, 2.4, 7.5, 6]
+	>>> my_list = MyList([1, 2], [3, 4])
+	Traceback (most recent call last):
+	TypeError: list expected at most 1 argument, got 2
 
-    >>> my_list.print_sorted()
-    [2, 2.4, 4.2, 6, 7.5]
+	>>> issubclass(MyList, list)
+	True
 
-    - float positive infinity
+	>>> issubclass(list, MyList)
+	False
 
-    >>> my_list = MyList()
-    >>> pos_inf = float('inf')
-    >>> my_list.append(pos_inf)
-    >>> my_list.append(4)
-    >>> my_list.append(2)
-    >>> my_list.append(7)
-    >>> my_list.append(5)
-    >>> print(my_list)
-    [inf, 4, 2, 7, 5]
-
-    >>> my_list.print_sorted()
-    [2, 4, 5, 7, inf]
-
-    - float negative infinity
-
-    >>> my_list = MyList()
-    >>> neg_inf = float('-inf')
-    >>> my_list.append(neg_inf)
-    >>> my_list.append(4)
-    >>> my_list.append(2)
-    >>> my_list.append(7)
-    >>> my_list.append(5)
-    >>> print(my_list)
-    [-inf, 4, 2, 7, 5]
-
-    >>> my_list.print_sorted()
-    [-inf, 2, 4, 5, 7]
-
-    - float "not a number"
-
-    >>> my_list = MyList()
-    >>> not_a_num = float('nan')
-    >>> my_list.append(not_a_num)
-    >>> my_list.append(4)
-    >>> my_list.append(neg_inf)
-    >>> my_list.append(-7)
-    >>> my_list.append(pos_inf)
-    >>> print(my_list)
-    [nan, 4, -inf, -7, inf]
-
-    >>> my_list.print_sorted()
-    [nan, -inf, -7, 4, inf]
-
-Exceptions
-
-Standard TypeErrors shown for argument count and list member types.
-
-    - more than 0 args:
-
-    >>> my_list.print_sorted(1)
-    Traceback (most recent call last):
-        ...
-    TypeError: print_sorted() takes 1 positional argument but 2 were given
-
-    >>> my_list.print_sorted([1, 4, 2, 3, 5])
-    Traceback (most recent call last):
-        ...
-    TypeError: print_sorted() takes 1 positional argument but 2 were given
-
-    - None in list:
-
-    >>> my_list = MyList()
-    >>> my_list.append(None)
-    >>> my_list.append(4)
-    >>> my_list.append(2)
-    >>> my_list.append(7)
-    >>> my_list.append(5)
-    >>> print(my_list)
-    [None, 4, 2, 7, 5]
-
-    >>> my_list.print_sorted()
-    Traceback (most recent call last):
-        ...
-    TypeError: unorderable types: int() < NoneType()
-
-    - string in list:
-
-    >>> my_list = MyList()
-    >>> my_list.append('1')
-    >>> my_list.append(4)
-    >>> my_list.append(2)
-    >>> my_list.append(7)
-    >>> my_list.append(5)
-    >>> print(my_list)
-    ['1', 4, 2, 7, 5]
-
-    >>> my_list.print_sorted()
-    Traceback (most recent call last):
-        ...
-    TypeError: unorderable types: int() < str()
-
-    - list in list:
-
-    >>> my_list = MyList()
-    >>> my_list.append([1, 3])
-    >>> my_list.append(4)
-    >>> my_list.append(2)
-    >>> my_list.append(7)
-    >>> my_list.append(5)
-    >>> print(my_list)
-    [[1, 3], 4, 2, 7, 5]
-
-    >>> my_list.print_sorted()
-    Traceback (most recent call last):
-        ...
-    TypeError: unorderable types: int() < list()
-
-    - tuple in list:
-
-    >>> my_list = MyList()
-    >>> my_list.append((1, 3))
-    >>> my_list.append(4)
-    >>> my_list.append(2)
-    >>> my_list.append(7)
-    >>> my_list.append(5)
-    >>> print(my_list)
-    [(1, 3), 4, 2, 7, 5]
-
-    >>> my_list.print_sorted()
-    Traceback (most recent call last):
-        ...
-    TypeError: unorderable types: int() < tuple()
+	>>> my_list = MyList(5)
+	Traceback (most recent call last):
+	TypeError: 'int' object is not iterable
