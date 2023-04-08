@@ -3,10 +3,10 @@
 
 
 import sys
-if len(sys.args) != 2:
+if len(sys.argv) != 2:
     print("Usage: nqueens N")
     exit(1)
-N = sys.args[1]
+N = sys.argv[1]
 if type(N) is not int:
     print("N must be a number")
     exit(1)
