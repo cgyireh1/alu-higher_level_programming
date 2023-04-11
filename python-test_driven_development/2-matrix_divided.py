@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-This Module contains method that divides all elements of a matrix and returns new matrix
+Contains method that divides all elements of a matrix and returns new matrix
 Requires same size lists of ints or floats, and max two decimal places
 """
 
