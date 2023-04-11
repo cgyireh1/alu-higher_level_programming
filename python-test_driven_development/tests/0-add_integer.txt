@@ -35,7 +35,7 @@ testing addition of 1 integer and default value of 2nd int (98)
 testing addition of two floats
 ::
 >>> add_integer(3.55, 2.25)
-6
+5
 
 testing addition of 1 int, 1 float
 ::
