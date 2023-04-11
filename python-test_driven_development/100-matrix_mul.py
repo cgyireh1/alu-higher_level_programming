@@ -1,4 +1,4 @@
-#!/usr/bin/pytho
+#!/usr/bin/python3
 """
 Contains method that does matrix multiplication
 Requires same size lists/rows of ints or floats
