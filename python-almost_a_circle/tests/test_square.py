@@ -2,7 +2,7 @@
 """
 Unittest for Square Class
 # run with python3 -m unittest discover tests
-# run with python3 -m unittest tests/test_models/test_square.py
+# run with python3 -m unittest tests/test_square.py
 """
 
 
@@ -15,12 +15,12 @@ Square = square.Square
 
 
 class TestPep8(unittest.TestCase):
-    """Pep8 models/square.py & tests/test_models/test_square.py"""
+    """Pep8 models/square.py & tests/test_square.py"""
     def test_pep8(self):
         """Pep8"""
         style = pep8.StyleGuide(quiet=False)
         errors = 0
-        files = ["models/square.py", "tests/test_models/test_square.py"]
+        files = ["models/square.py", "tests/test_square.py"]
         errors += style.check_files(files).total_errors
         self.assertEqual(errors, 0, 'Need to fix Pep8')
 
