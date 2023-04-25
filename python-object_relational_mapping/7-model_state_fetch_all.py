@@ -2,6 +2,7 @@
 """return all state objects from database via python 
 parameters given to script: username, password, database"""
 
+
 from sys import argv
 from model_state import Base, State
 from sqlalchemy import create_engine
