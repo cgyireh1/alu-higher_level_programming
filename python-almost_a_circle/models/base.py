@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 """defines Base class"""
 
+import json
+import csv
+
 
 class Base():
     """manages id attribute in all future classes"""
