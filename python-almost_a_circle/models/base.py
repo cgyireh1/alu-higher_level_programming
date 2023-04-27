@@ -89,8 +89,7 @@ class Base():
 
                         @classmethod
                         def load_from_file_csv(cls):
-                        """Serializes and deserializes in CSV with same behavior
-                        as the JSON serialization/deserialization"""
+                        """Serializes and deserializes in CSV with same behavior as the JSON"""
                         objs = []
                         filename = cls.__name__ + ".csv"
                         try:
