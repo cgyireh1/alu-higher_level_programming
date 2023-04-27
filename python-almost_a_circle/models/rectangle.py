@@ -133,4 +133,3 @@ class Rectangle(Base):
         dict_rep["x"] = self.x
         dict_rep["y"] = self.y
         return dict_rep
-
