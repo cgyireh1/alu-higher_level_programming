@@ -7,3 +7,4 @@ if (isNaN(num)) {
   console.log(`My number: ${num}`);
 }
 
+
