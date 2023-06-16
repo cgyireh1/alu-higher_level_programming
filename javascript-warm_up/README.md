@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ##JavaScript - Warm up
 
 #Description of the tasks:
@@ -21,3 +22,13 @@ For all Tasks, must use console.log(...) to print all output
 13. Add file---A function that returns the addition of 2 integers.
 
 And 4 mandatory Advanced tasks.
+=======
+/javaScript-warm_up/
+
+#This project is designed to help in learning the basic concepts of JavaScript by practicing scripting. 
+
+
+
+
+
+>>>>>>> 8ad2233955416c537847a7a51510637a9a183ea5
