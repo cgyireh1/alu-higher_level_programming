@@ -5,4 +5,3 @@ exports.logMe = function (item) {
   num++;
   console.log(num + ': ' + item);
 };
-
