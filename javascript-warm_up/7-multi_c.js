@@ -6,5 +6,5 @@ if (isNaN(num)) {
 } else {
   for (let i = num; i > 0; i -= 1) {
     console.log('C is fun');
-  } 
+  }
 }
