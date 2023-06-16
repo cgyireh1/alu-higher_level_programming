@@ -1,7 +1,7 @@
 #!/usr/bin/node
 const request = require('request');
 const myArgs = process.argv.slice(2);
-const URLstring = 'https://swapi-api.hbtn.io/api/films/' + myArgs[0];
+const URLstring = 'https://swapi.dev/api/films/' + myArgs[0];
 function characterFunc (character, i = 0, stop) {
   if (i === stop) {
     return;
