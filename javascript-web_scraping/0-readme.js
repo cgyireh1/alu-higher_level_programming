@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-let filename = process.argv[2];
+const filename = process.argv[2];
 const fs = require('fs');
 fs.readFile(filename, 'utf8', function (err, data) {
   if (err) {
@@ -9,3 +9,4 @@ fs.readFile(filename, 'utf8', function (err, data) {
     console.log(data);
   }
 });
+
